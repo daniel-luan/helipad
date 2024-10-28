@@ -60,6 +60,7 @@ do
     echo "\n\n>>>>>> Processing $board <<<<<<\n\n"
     if [ -e ergogen/output/pcbs/${board}_manually_routed.kicad_pcb ]; then
         ${container_cmd} run ${container_args} ${kicad_auto_image} kibot -b ergogen/output/pcbs/${board}_manually_routed.kicad_pcb -c kibot/boards.kibot.yaml
+        ${container_cmd} run ${container_args} ${kicad_auto_image} kibot -b ergogen/output/pcbs/${board}_manually_routed.kicad_pcb -c kibot/default.kibot.yaml
     fi
     if [ -e ergogen/output/pcbs/${board}.kicad_pcb ]; then
         echo Export DSN 
@@ -88,6 +89,7 @@ do
     fi
     if [ -e ergogen/output/pcbs/${board}_autorouted.kicad_pcb ]; then
         ${container_cmd} run ${container_args} ${kicad_auto_image} kibot -b ergogen/output/pcbs/${board}_autorouted.kicad_pcb -c kibot/boards.kibot.yaml
+        ${container_cmd} run ${container_args} ${kicad_auto_image} kibot -b ergogen/output/pcbs/${board}_autorouted.kicad_pcb -c kibot/default.kibot.yaml
     fi
 done
 
